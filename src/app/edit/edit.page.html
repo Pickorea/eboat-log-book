@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Date</ion-label>
+    <ion-datetime [(ngModel)]="startDateVal"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Start Time</ion-label>
+    <ion-datetime displayFormat="HH:mm" [(ngModel)]="startTimeVal"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">End Time</ion-label>
+    <ion-datetime displayFormat="HH:mm" [(ngModel)]="endTimeVal"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Departure Point</ion-label>
+    <ion-input [(ngModel)]="departurePointVal"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Arrival Point</ion-label>
+    <ion-input  [(ngModel)]="arrivalPointVal"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Average Speed</ion-label>
+    <ion-input  [(ngModel)]="avespeedVal"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Fuel</ion-label>
+    <ion-input  [(ngModel)]="fuelVal"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Weather</ion-label>
+    <ion-input  [(ngModel)]="weatherVal"></ion-input>
+  </ion-item>
+
+  <ion-button color="danger" expand="block" (click)="onUpdate()">
+    Update
+  </ion-button>
+</ion-content>
