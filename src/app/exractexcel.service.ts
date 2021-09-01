@@ -42,13 +42,15 @@ export class ExractexcelService {
 // }
 
 private saveAsExcelFile(buffer: any, fileName: string): void {
-  const data: Blob = new Blob([buffer],{
-        type: EXCEL_TYPE
-      });
+  // const data: Blob = new Blob([buffer],{
+  //       type: EXCEL_TYPE
+  //     });
+//   const file = new File([blob], 'report.xlsx',
+//  { type: 'application/vnd.ms-excel' });
    //Determine a native file path to save to
   const path = this.file.documentsDirectory + '/Download/'; 
   let filename = 'report.xlsx';
-  this.file.writeFile(path,filename,data).then((entry) => {
+  this.file.writeFile(path,filename,file).then((entry) => {
     alert("download completed");
   }, (error) => {
     alert("Download Failed.");
