@@ -45,12 +45,13 @@ private saveAsExcelFile(buffer: any, fileName: string): void {
   // const data: Blob = new Blob([buffer],{
   //       type: EXCEL_TYPE
   //     });
-//   const file = new File([blob], 'report.xlsx',
-//  { type: 'application/vnd.ms-excel' });
+  const data = new Blob([buffer], {
+     type: EXCEL_TYPE 
+    });
    //Determine a native file path to save to
   const path = this.file.documentsDirectory + '/Download/'; 
   let filename = 'report.xlsx';
-  this.file.writeFile(path,filename,file).then((entry) => {
+  this.file.writeFile(path,filename,data).then((entry) => {
     alert("download completed");
   }, (error) => {
     alert("Download Failed.");
