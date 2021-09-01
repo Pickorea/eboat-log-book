@@ -19,6 +19,11 @@ export class CreatePage implements OnInit {
   fuelVal:string = "";
   weatherVal:string = "";
 
+  //data: data to be extracted as xlsx and to be saved on a a mobile 
+  // but the actual data (is to obtained from a crud.service)
+  //that I wish to save as xlsx  on a device
+
+   
   data:any = [{
     eid: 'A1',
     ename: 'Angular',
