@@ -41,17 +41,17 @@ export class ExractexcelService {
 //     FileSaver.saveAs(file);
 // }
 
-private saveAsExcelFile(buffer: any, fileName: string): void {
+private saveAsExcelFile(buffer: any, fileName: string){
   // const data: Blob = new Blob([buffer],{
   //       type: EXCEL_TYPE
   //     });
-  const data = new Blob([buffer], {
-     type: EXCEL_TYPE 
-    });
+  // const data = new Blob([buffer], {
+  //    type: EXCEL_TYPE 
+  //   });
    //Determine a native file path to save to
   const path = this.file.documentsDirectory + '/Download/'; 
   let filename = 'report.xlsx';
-  this.file.writeFile(path,filename,data).then((entry) => {
+  this.file.writeFile(path,filename,buffer).then((entry) => {
     alert("download completed");
   }, (error) => {
     alert("Download Failed.");
