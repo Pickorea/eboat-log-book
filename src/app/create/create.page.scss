@@ -20,3 +20,41 @@ ion-grid {
       border-bottom: 1px solid rgb(247, 239, 239);
     }
   }
+
+  .lay-out {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  // .header-row {
+  //   background: #7163AA;
+  //   color: #fff;
+  //   font-size: 18px;
+  // }
+  
+  // ion-col {
+  //   border: 1px solid #ECEEEF;
+  // }
+
+  // .col{
+  //   max-width :20% !important;
+  // }
+
+  .header .col {
+    background-color:lightgrey;
+}
+
+.col {
+    border: solid 1px grey;
+    border-bottom-style: none;
+    border-right-style: none;
+}
+
+.col:last-child {
+    border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+    border-bottom: solid 1px grey;
+}
