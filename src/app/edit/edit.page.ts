@@ -19,6 +19,10 @@ export class EditPage implements OnInit {
   avespeedVal:string = "";
   fuelVal:string = "";
   weatherVal:string = "";
+  windVal:string = "";
+  commentVal:string = "";
+  crewnumberVal:string = "";
+  loggedbyVal:string = "";
 
   constructor(
     private router: Router,
@@ -36,13 +40,17 @@ export class EditPage implements OnInit {
       this.avespeedVal = res['avespeed'];
       this.fuelVal = res['fuel'];
       this.weatherVal = res['weather'];
+      this.windVal = res['wind'];
+      this.commentVal = res['comment'];
+      this.crewnumberVal = res['crewnumber'];
+      this.loggedbyVal = res['loggedby'];
     })
   }
 
   ngOnInit() { }
 
   onUpdate() {
-     this.crud.updateVessel(this.id,  this.startDateVal, this.endTimeVal, this.startTimeVal, this.departurePointVal, this.arrivalPointVal, this.avespeedVal, this.fuelVal, this.weatherVal).then(() => {
+     this.crud.updateVessel(this.id,  this.startDateVal, this.endTimeVal, this.startTimeVal, this.departurePointVal, this.arrivalPointVal, this.avespeedVal, this.fuelVal, this.weatherVal, this.windVal, this.commentVal, this.crewnumberVal, this.loggedbyVal).then(() => {
         this.router.navigate(['/create']);
      })
   }

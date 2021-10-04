@@ -30,7 +30,7 @@ export class CrudService {
               location: 'default'
             }).then((sqLite: SQLiteObject) => {
               this.dbInstance = sqLite;
-              sqLite.executeSql('DROP TABLE IF EXISTS vessels');
+              // sqLite.executeSql('DROP TABLE IF EXISTS vessels');
                 sqLite.executeSql(`
                   CREATE TABLE IF NOT EXISTS ${this.db_table} (
                     vessel_id INTEGER PRIMARY KEY, 
@@ -41,7 +41,11 @@ export class CrudService {
                     arrivalPoint varchar(255),
                     avespeed varchar(255),
                     fuel varchar(255),
-                    weather varchar(255)                   
+                    weather varchar(255),  
+                    wind varchar(255), 
+                    comment varchar(255), 
+                    crewnumber varchar(255),
+                    loggedby varchar(255)              
                   )`, [])
                 .then((res) => {
                   // alert(JSON.stringify(res));
@@ -53,14 +57,14 @@ export class CrudService {
     }
 
     // Crud
-    public addItem(a, b, c, d, e, f, g, h) {
+    public addItem(a, b, c, d, e, f, g, h, i, j, k, l) {
       // validation
-      if (!a.length || !b.length || !c.length || !d.length || !e.length || !f.length || !g.length || !h.length) { 
+      if (!a.length || !b.length || !c.length || !d.length || !e.length || !f.length || !g.length || !h.length || !i.length || !j.length || !k.length || !l.length) { 
         alert('Provide both startTime & startDate');
         return;
       }
       this.dbInstance.executeSql(`
-      INSERT INTO ${this.db_table} (startDate, startTime, endTime, departurePoint, arrivalPoint, avespeed, fuel, weather) VALUES ('${a}', '${b}', '${c}', '${d}', '${e}', '${f}', '${g}', '${h}')`, [])
+      INSERT INTO ${this.db_table} (startDate, startTime, endTime, departurePoint, arrivalPoint, avespeed, fuel, weather, wind, comment, crewnumber, loggedby) VALUES ('${a}', '${b}', '${c}', '${d}', '${e}', '${f}', '${g}', '${h}', '${i}',  '${j}', '${'k'}', '${'l'}')`, [])
         .then(() => {
           alert("Success");
           this.getAllVessels();
@@ -98,14 +102,18 @@ export class CrudService {
           avespeed: res.rows.item(0).avespeed,
           fuel: res.rows.item(0).fuel,
           weather: res.rows.item(0).weather,
+          wind: res.rows.item(0).wind,
+          comment: res.rows.item(0).comment,
+          crewnumber: res.rows.item(0).crewnumber,
+          loggedby: res.rows.item(0).loggedby
         }
       });
     }
 
     // Update
-    updateVessel(id, startDate, startTime, endTime, departurePoint, arrivalPoint, avespeed, fuel, weather) {
-      let data = [startDate, startTime, endTime,departurePoint, arrivalPoint, avespeed, fuel, weather];
-      return this.dbInstance.executeSql(`UPDATE ${this.db_table} SET startDate = ?, startTime = ?, endTime = ?, departurePoint = ?, arrivalPoint = ?, avespeed = ?, fuel = ?, weather = ? WHERE vessel_id = ${id}`, data)
+    updateVessel(id, startDate, startTime, endTime, departurePoint, arrivalPoint, avespeed, fuel, weather, wind, comment, crewnumber, loggedby) {
+      let data = [startDate, startTime, endTime,departurePoint, arrivalPoint, avespeed, fuel, weather, wind, comment, crewnumber, loggedby];
+      return this.dbInstance.executeSql(`UPDATE ${this.db_table} SET startDate = ?, startTime = ?, endTime = ?, departurePoint = ?, arrivalPoint = ?, avespeed = ?, fuel = ?, weather = ?,  wind = ? ,  comment = ?, crewnumber = ?, loggedby = ? WHERE vessel_id = ${id}`, data)
     }  
 
     // Delete

@@ -18,6 +18,10 @@ export class CreatePage implements OnInit {
   avespeedVal:string = "";
   fuelVal:string = "";
   weatherVal:string = "";
+  windVal:string = "";
+  commentVal:string = "";
+  crewnumberVal:string = "";
+  loggedbyVal:string = "";
 
   //data: data to be extracted as xlsx and to be saved on a a mobile 
   // but the actual data (is to obtained from a crud.service)
@@ -45,7 +49,7 @@ export class CreatePage implements OnInit {
   }
    
   createVessel(){
-    this.crud.addItem(this.startDateVal, this.startTimeVal, this.endTimeVal,this.departurePointVal,this.arrivalPointVal, this.avespeedVal, this.fuelVal, this.weatherVal);
+    this.crud.addItem(this.startDateVal, this.startTimeVal, this.endTimeVal,this.departurePointVal,this.arrivalPointVal, this.avespeedVal, this.fuelVal, this.weatherVal, this.windVal,  this.commentVal, this.crewnumberVal, this.loggedbyVal);
   }
    
   remove(vessel) {

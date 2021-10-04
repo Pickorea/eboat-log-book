@@ -48,7 +48,28 @@
     <ion-input  [(ngModel)]="weatherVal"></ion-input>
   </ion-item>
 
-  <ion-button color="danger" expand="block" (click)="onUpdate()">
+  <ion-item>
+    <ion-label position="floating">Wind</ion-label>
+    <ion-input  [(ngModel)]="windVal"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Comments</ion-label>
+    <ion-input  [(ngModel)]="commentVal"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Crew Number</ion-label>
+    <ion-input  [(ngModel)]="crewnumberVal"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Logged By</ion-label>
+    <ion-input  [(ngModel)]="loggedbyVal"></ion-input>
+    </ion-item>
+  
+
+  <ion-button color="warning" expand="block" (click)="onUpdate()">
     Update
   </ion-button>
 </ion-content>
