@@ -64,7 +64,7 @@ export class CrudService {
         return;
       }
       this.dbInstance.executeSql(`
-      INSERT INTO ${this.db_table} (startDate, startTime, endTime, departurePoint, arrivalPoint, avespeed, fuel, weather, wind, comment, crewnumber, loggedby) VALUES ('${a}', '${b}', '${c}', '${d}', '${e}', '${f}', '${g}', '${h}', '${i}',  '${j}', '${'k'}', '${'l'}')`, [])
+      INSERT INTO ${this.db_table} (startDate, startTime, endTime, departurePoint, arrivalPoint, avespeed, fuel, weather, wind, comment, crewnumber, loggedby) VALUES ('${a}', '${b}', '${c}', '${d}', '${e}', '${f}', '${g}', '${h}', '${i}',  '${j}', '${k}', '${l}')`, [])
         .then(() => {
           alert("Success");
           this.getAllVessels();

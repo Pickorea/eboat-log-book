@@ -1,14 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../crud.service';
 import { ExractexcelService} from '../exractexcel.service';
+import { HttpClient } from '@angular/common/http';
+import { ViewEncapsulation } from '@angular/core';
+
+// export interface USERS {
+//   users: string;
+// }
 
 @Component({
   selector: 'app-create',
   templateUrl: './create.page.html',
   styleUrls: ['./create.page.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class CreatePage implements OnInit {
+
+  public Users: any;
+  public col: any;
+  public rows: any;
 
   startDateVal: string = "";
   startTimeVal: string = "";
@@ -28,21 +39,38 @@ export class CreatePage implements OnInit {
   //that I wish to save as xlsx  on a device
 
    
-  data:any = [{
-    eid: 'A1',
-    ename: 'Angular',
-    esal: 5333
-  }];
+  // data:any = [{
+  //   eid: 'A1',
+  //   ename: 'Angular',
+  //   esal: 5333
+  // }];
 
    
 
   constructor(
-   public crud: CrudService, public extractxlsx: ExractexcelService
-  ) {
+   public crud: CrudService, public extractxlsx: ExractexcelService, private httpClient: HttpClient
+  ) 
+    
+  {
     this.crud.databaseConn(); 
   }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    // {
+    //   this.col = [
+    //     { name: 'Name' },
+    //     { name: 'Username' },
+    //     { name: 'email' }
+    //   ];
+  
+    //   this.Users = this.crud.getAllVessels();
+    //   this.httpClient.get<USERS>(this.Users)
+    //     .subscribe((response) => {
+    //       console.log(response)
+    //       this.rows = response.users;
+    //     });
+    // }
+  }
 
   ionViewDidEnter() {  
     this.crud.getAllVessels()
@@ -56,8 +84,8 @@ export class CreatePage implements OnInit {
     this.crud.deleteVessel(vessel);
   }
   
-exportAsXLSX():void {
-  this.extractxlsx.exportAsExcelFile(this.data, 'sample');
-}
+// exportAsXLSX():void {
+//   this.extractxlsx.exportAsExcelFile(this.data, 'sample');
+// }
   
 }
